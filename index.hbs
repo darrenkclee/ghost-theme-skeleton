@@ -1,0 +1,28 @@
+{{!< default}}
+{{> header}}
+
+<main class="main_dkcl" role="main">
+  {{#foreach posts}}
+    <article class="article_dkcl" role="article" itemscope itemtype="http://schema.org/Article">
+      <header class="postheader_dkcl">
+        <time class="date_dkcl" datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">{{date format='dddd DD MMM YYYY'}}</time>
+        <h1 class="posttitle_dkcl" itemprop="headline"><a href="{{{url}}}" rel="bookmark">{{title}}</a></h1>
+      </header>
+      <div class="postcontent_dkcl" itemprop="articleBody">
+        {{content}}
+      </div>
+      {{#if tags}}
+        <div class="posttags_dkcl">
+          Tags: {{tags separator=" | "}}
+        </div>
+      {{/if}}
+    </article>
+  {{/foreach}}
+  {{#if pagination}}
+    <div class="pagination_dkcl">
+      {{{pagination}}}
+    </div>
+  {{/if}}
+</main>
+
+{{> footer}}
